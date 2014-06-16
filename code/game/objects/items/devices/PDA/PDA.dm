@@ -611,7 +611,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if (in_range(src, U) && loc == U)
 				n = copytext(adminscrub(n), 1, MAX_MESSAGE_LEN)
 				if (mode == 1)
-					note = html_decode(n)
+					note = rhtml_decode(n)
 					notehtml = note
 					note = replacetext(note, "\n", "<br>")
 			else

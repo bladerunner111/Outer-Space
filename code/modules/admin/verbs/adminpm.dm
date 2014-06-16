@@ -78,7 +78,7 @@
 			else
 				recieve_color = "maroon"
 			send_pm_type = holder.rank + " "
-			if(!C.holder && holder && holder.fakekey) 
+			if(!C.holder && holder && holder.fakekey)
 				recieve_pm_type = "Admin"
 			else
 				recieve_pm_type = holder.rank
@@ -144,7 +144,7 @@
 		src << "\blue [msg]"
 		return
 
-	send2adminirc("PlayerPM from [key_name(src)]: [html_decode(msg)]")
+	send2adminirc("PlayerPM from [key_name(src)]: [rhtml_decode(msg)]")
 
 	src << "<font color='blue'>IRC PM to-<b>IRC-Admins</b>: [msg]</font>"
 

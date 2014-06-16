@@ -33,7 +33,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	if(!msg)	return
 	var/original_msg = msg
 
-	
+
 
 	//explode the input msg into a list
 	var/list/msglist = text2list(msg, " ")
@@ -110,10 +110,10 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")
 	if(admin_number_present <= 0)
 		if(!admin_number_afk)
-			send2adminirc("ADMINHELP from [key_name(src)]: [html_decode(original_msg)] - !!No admins online!!")
+			send2adminirc("ADMINHELP from [key_name(src)]: [rhtml_decode(original_msg)] - !!No admins online!!")
 		else
-			send2adminirc("ADMINHELP from [key_name(src)]: [html_decode(original_msg)] - !!All admins AFK ([admin_number_afk])!!")
+			send2adminirc("ADMINHELP from [key_name(src)]: [rhtml_decode(original_msg)] - !!All admins AFK ([admin_number_afk])!!")
 	else
-		send2adminirc("ADMINHELP from [key_name(src)]: [html_decode(original_msg)]")
+		send2adminirc("ADMINHELP from [key_name(src)]: [rhtml_decode(original_msg)]")
 	feedback_add_details("admin_verb","AH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
