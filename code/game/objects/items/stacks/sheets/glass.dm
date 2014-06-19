@@ -2,8 +2,8 @@
  * Contains:
  *		Glass sheets
  *		Reinforced glass sheets
- *		Phoron Glass Sheets
- *		Reinforced Phoron Glass Sheets (AKA Holy fuck strong windows)
+ *		Plasma Glass Sheets
+ *		Reinforced Plasma Glass Sheets (AKA Holy fuck strong windows)
  *		Glass shards - TODO: Move this into code/game/object/item/weapons
  */
 
@@ -310,25 +310,25 @@
 
 
 /*
- * Phoron Glass sheets
+ * Plasma Glass sheets
  */
-/obj/item/stack/sheet/glass/phoronglass
-	name = "phoron glass"
-	desc = "A very strong and very resistant sheet of a phoron-glass alloy."
-	singular_name = "phoron glass sheet"
-	icon_state = "sheet-phoronglass"
+/obj/item/stack/sheet/glass/plasmaglass
+	name = "plasma glass"
+	desc = "A very strong and very resistant sheet of a plasma-glass alloy."
+	singular_name = "plasma glass sheet"
+	icon_state = "sheet-plasmaglass"
 	g_amt = 7500
-	origin_tech = "materials=3;phoron=2"
-	created_window = /obj/structure/window/phoronbasic
+	origin_tech = "materials=3;plasma=2"
+	created_window = /obj/structure/window/plasmabasic
 
-/obj/item/stack/sheet/glass/phoronglass/attack_self(mob/user as mob)
+/obj/item/stack/sheet/glass/plasmaglass/attack_self(mob/user as mob)
 	construct_window(user)
 
-/obj/item/stack/sheet/glass/phoronglass/attackby(obj/item/W, mob/user)
+/obj/item/stack/sheet/glass/plasmaglass/attackby(obj/item/W, mob/user)
 	..()
 	if( istype(W, /obj/item/stack/rods) )
 		var/obj/item/stack/rods/V  = W
-		var/obj/item/stack/sheet/glass/phoronrglass/RG = new (user.loc)
+		var/obj/item/stack/sheet/glass/plasmarglass/RG = new (user.loc)
 		RG.add_fingerprint(user)
 		RG.add_to_stacks(user)
 		V.use(1)
@@ -342,17 +342,17 @@
 		return ..()
 
 /*
- * Reinforced phoron glass sheets
+ * Reinforced plasma glass sheets
  */
-/obj/item/stack/sheet/glass/phoronrglass
-	name = "reinforced phoron glass"
-	desc = "Phoron glass which seems to have rods or something stuck in them."
-	singular_name = "reinforced phoron glass sheet"
-	icon_state = "sheet-phoronrglass"
+/obj/item/stack/sheet/glass/plasmarglass
+	name = "reinforced plasma glass"
+	desc = "Plasma glass which seems to have rods or something stuck in them."
+	singular_name = "reinforced plasma glass sheet"
+	icon_state = "sheet-plasmarglass"
 	g_amt = 7500
 	m_amt = 1875
-	origin_tech = "materials=4;phoron=2"
-	created_window = /obj/structure/window/phoronreinforced
+	origin_tech = "materials=4;plasma=2"
+	created_window = /obj/structure/window/plasmareinforced
 
-/obj/item/stack/sheet/glass/phoronrglass/attack_self(mob/user as mob)
+/obj/item/stack/sheet/glass/plasmarglass/attack_self(mob/user as mob)
 	construct_window(user)
