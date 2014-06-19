@@ -1,16 +1,27 @@
 /obj/item/weapon/gun/energy/gun
 	name = "energy gun"
 	desc = "A basic energy-based gun with two settings: Stun and kill."
-	icon_state = "energystun100"
+	icon_state = "energy100"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 
 	charge_cost = 100 //How much energy is needed to fire.
-	projectile_type = "/obj/item/projectile/beam/stun"
+	projectile_type = "/obj/item/projectile/energy/electrode"
 	origin_tech = "combat=3;magnets=2"
-	modifystate = "energystun"
+	//modifystate = "energystun"
 
 	var/mode = 0 //0 = stun, 1 = kill
+
+	New()
+		update_icon()
+
+	update_icon()
+		overlays.Cut()
+		if(mode)
+			overlays += image(icon, "energykill")
+		else
+			overlays += image(icon, "energystun")
+		..()
 
 
 	attack_self(mob/living/user as mob)
@@ -21,14 +32,14 @@
 				fire_sound = 'sound/weapons/Laser.ogg'
 				user << "\red [src.name] is now set to kill."
 				projectile_type = "/obj/item/projectile/beam"
-				modifystate = "energykill"
+				//modifystate = "energykill"
 			if(1)
 				mode = 0
 				charge_cost = 100
 				fire_sound = 'sound/weapons/Taser.ogg'
 				user << "\red [src.name] is now set to stun."
 				projectile_type = "/obj/item/projectile/energy/electrode"
-				modifystate = "energystun"
+				//modifystate = "energystun"
 		update_icon()
 
 
