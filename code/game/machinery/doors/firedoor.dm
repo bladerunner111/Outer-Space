@@ -74,7 +74,7 @@
 		stat |= NOPOWER
 	return
 
-
+/*
 /obj/machinery/door/firedoor/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	if(operating)
@@ -94,10 +94,6 @@
 		if(A.fire || A.air_doors_activated)
 			alarmed = 1
 
-	var/answer = alert(user, "Would you like to [density ? "open" : "close"] this [src.name]?[ alarmed && density ? "\nNote that by doing so, you acknowledge any damages from opening this\n[src.name] as being your own fault, and you will be held accountable under the law." : ""]",\
-	"\The [src]", "Yes, [density ? "open" : "close"]", "No")
-	if(answer == "No")
-		return
 	if(user.stat || user.stunned || user.weakened || user.paralysis || (!user.canmove && !isAI(user)) || (get_dist(src, user) > 1  && !isAI(user)))
 		user << "Sorry, you must remain able bodied and close to \the [src] in order to use it."
 		return
@@ -121,6 +117,7 @@
 			if(alarmed)
 				nextstate = CLOSED
 				close()
+*/
 
 /obj/machinery/door/firedoor/attackby(obj/item/weapon/C as obj, mob/user as mob)
 	add_fingerprint(user)
@@ -145,7 +142,7 @@
 		if(operating)
 			return
 
-		if( blocked && istype(C, /obj/item/weapon/crowbar) )
+		if(blocked && istype(C, /obj/item/weapon/crowbar) )
 			user.visible_message("\red \The [user] pries at \the [src] with \a [C], but \the [src] is welded in place!",\
 			"You try to pry \the [src] [density ? "open" : "closed"], but it is welded in place!",\
 			"You hear someone struggle and metal straining.")
