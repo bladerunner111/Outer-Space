@@ -455,6 +455,51 @@
 		for (var/i; i < storage_slots; i++)
 			new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src)
 
+/obj/item/weapon/storage/box/shells
+	name = "box of shells"
+	desc = "Contains shotgun shells"
+
+	New()
+		..()
+		for (var/i; i < storage_slots; i++)
+			new /obj/item/ammo_casing/shotgun(src)
+
+/obj/item/weapon/storage/box/shells/blank
+	name = "box of shells (blank)"
+	desc = "Contains shotgun shells"
+
+	New()
+		..()
+		for (var/i; i < storage_slots; i++)
+			new /obj/item/ammo_casing/shotgun/blank(src)
+
+/obj/item/weapon/storage/box/shells/beanbang
+	name = "box of shells (beanbang)"
+	desc = "Contains shotgun shells"
+
+	New()
+		..()
+		for (var/i; i < storage_slots; i++)
+			new /obj/item/ammo_casing/shotgun/beanbag(src)
+
+/obj/item/weapon/storage/box/shells/stun
+	name = "box of shells (stun)"
+	desc = "Contains shotgun shells"
+
+	New()
+		..()
+		for (var/i; i < storage_slots; i++)
+			new /obj/item/ammo_casing/shotgun/stunshell(src)
+
+/obj/item/weapon/storage/box/shells/dart
+	name = "box of shells (dart)"
+	desc = "Contains shotgun shells"
+
+	New()
+		..()
+		for (var/i; i < storage_slots; i++)
+			new /obj/item/ammo_casing/shotgun/dart(src)
+
 /obj/item/weapon/storage/box/lights
 	name = "box of replacement bulbs"
 	icon = 'icons/obj/storage.dmi'

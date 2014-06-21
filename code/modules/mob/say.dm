@@ -155,9 +155,9 @@
 		return "headset"
 
 	if(length(message) >= 2)
-		var/channel_prefix = copytext(message, 1 ,3)
+		var/channel_prefix = lowertext(copytext(message, 1 ,3))
 		return department_radio_keys[channel_prefix]
-	
+
 	return null
 
 //parses the language code (e.g. :j) from text, such as that supplied to say.

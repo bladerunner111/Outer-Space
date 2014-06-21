@@ -13,15 +13,16 @@
 	var/mode = 0 //0 = stun, 1 = kill
 
 	New()
+		..()
 		update_icon()
 
 	update_icon()
+		..()
 		overlays.Cut()
 		if(mode)
 			overlays += image(icon, "energykill")
 		else
 			overlays += image(icon, "energystun")
-		..()
 
 
 	attack_self(mob/living/user as mob)

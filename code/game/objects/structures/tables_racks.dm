@@ -422,6 +422,25 @@
 		return 0
 	return 1
 
+/obj/structure/table/verb/climbon()
+	set src in oview(1)
+	set name = "Climb On"
+	set category = "Objects"
+
+	if(!istype(usr, /mob/living/carbon/human))
+		return
+	if(!Adjacent(usr))
+		return
+
+	visible_message("<span class='notice'>[usr] trying to climb on the [src].</span>")
+	if(do_mob(usr, get_turf(usr), 8))
+		if(prob(50))
+			visible_message("<span class='notice'>[usr] climbs on the [src].</span>")
+			usr.loc = src.loc
+		else
+			visible_message("<span class='warning'>[usr] slipped off the edge of the [src].</span>")
+			usr.weakened += 5
+
 /obj/structure/table/verb/do_flip()
 	set name = "Flip table"
 	set desc = "Flips a non-reinforced table"
